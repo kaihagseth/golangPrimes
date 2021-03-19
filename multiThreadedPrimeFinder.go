@@ -1,11 +1,17 @@
+/*
+ * Finds all primes between 1 and 500k by using all processor cores 
+ */
 package main
 import (
     "fmt"
     "time"
+    "runtime"
 )
 
-const max_test = 1000000
-const workers =  4
+
+const max_test = 500000
+var workers = 0
+
 
 // tests if an integer is dividable by earlies integers
 func isPrime(ps []int, n int) (bool) {
@@ -44,6 +50,7 @@ func isPrimeJob(ps []int, n int, step int, found chan bool, done chan bool) {
 
 
 func main() {
+    workers =  runtime.NumCPU()
     start := time.Now()
     primes := []int{2}
     for i := 3; i < max_test; i+=2 {
