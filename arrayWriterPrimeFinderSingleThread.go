@@ -8,7 +8,7 @@ import (
     "time"
 )
 
-const max_test = 100000000
+const max_test = 500000 
 
 // Set all indexes is map which is
 func removeCandidates(n int, prime_map *[max_test+1]bool){
