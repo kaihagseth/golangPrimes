@@ -19,4 +19,5 @@ jobs:
         go-version: 1.15
 
     - name: Build
-      run: run.sh
+      run: ${GITHUB_WORKSPACE}/run.sh
+      shell: bash
